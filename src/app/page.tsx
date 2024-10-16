@@ -1,21 +1,25 @@
 import Image from "next/image";
-import Logo from "../app/public/logo.svg"
+import Logo from "../app/public/logo.svg";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <header>
+    <div className="flex flex-col min-h-full items-center justify-items-center min-h-screen font-[family-name:var(--font-geist-sans)]">
+      <header className="flex flex-row sticky top-0 z-10">
+        <Image src={Logo} alt="logo" />
         sticky header here
       </header>
-      <main>
-      <Image src={Logo} alt="logo" />
-        <h1 className="text-2xl">
-          Your crypto wallet on autopilot
-        </h1>
+      <main className="flex-grow">
+        <h1 className="text-5xl">Your crypto wallet on autopilot</h1>
         <p>
-        A personalized trading bot for complex, multi-step wallet 
-        strategies. Agents guarantee smart execution.
+          A personalized trading bot for complex, multi-step wallet strategies.
+          Agents guarantee smart execution.
         </p>
+        <ul>
+          how it works
+          <li>Assess your risk</li>
+          <li>Approve your wallet strategy</li>
+          <li>Earn yield in your sleep</li>
+        </ul>
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
         <a
@@ -24,13 +28,6 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
           Learn
         </a>
         <a
@@ -39,13 +36,6 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
           Examples
         </a>
         <a
@@ -54,14 +44,7 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
+          Go to nextjs.org
         </a>
       </footer>
     </div>
