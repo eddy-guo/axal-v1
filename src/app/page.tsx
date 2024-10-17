@@ -11,19 +11,45 @@ import multichainSupport from "../app/public/multi-chain-support.svg";
 export default function Home() {
   return (
     <>
-      <header className="flex justify-between items-center sticky top-0 z-10 w-full bg-zinc-700 py-10 px-20">
+      <header className="flex justify-between items-center sticky top-0 z-10 px-20 py-10 w-full bg-black bg-opacity-80 backdrop-blur border-b-[1px] border-gray-600">
         <Link href="/">
           <Image src={Logo} alt="logo" width={200} />
         </Link>
         <nav className="flex gap-6">
           <Link
             href="mailto:hello@getaxal.com"
+            target="_blank"
             className="hover:underline hover:underline-offset-4"
           >
             Contact
           </Link>
-          <Link href="/" className="hover:underline hover:underline-offset-4">
+          <Link
+            href="https://www.ax.al/"
+            target="_blank"
+            className="hover:underline hover:underline-offset-4"
+          >
             Docs
+          </Link>
+          <Link
+            href="https://x.com/getaxal"
+            target="_blank"
+            className="hover:underline hover:underline-offset-4"
+          >
+            X
+          </Link>
+          <Link
+            href="https://www.ax.al/"
+            target="_blank"
+            className="hover:underline hover:underline-offset-4"
+          >
+            Discord
+          </Link>
+          <Link
+            href="https://github.com/getaxal"
+            target="_blank"
+            className="hover:underline hover:underline-offset-4"
+          >
+            GitHub
           </Link>
           <Link href="/" className="hover:underline hover:underline-offset-4">
             Connectkit
@@ -49,7 +75,7 @@ export default function Home() {
           </ul>
           <h1 className="text-5xl">FEATURES</h1>
           <div className="w-full flex flex-wrap items-center justify-between">
-            <div className="flex flex-col w-[22%] border p-6 bg-gray-700">
+            <div className="flex flex-col w-[22%] border p-6 bg-gray-600">
               <Image
                 src={autoRebalance}
                 alt="auto-rebalance"
@@ -64,7 +90,7 @@ export default function Home() {
                 nisi ut aliquip ex ea commodo consequat.
               </p>
             </div>
-            <div className="flex flex-col w-[22%] border p-6 bg-gray-700">
+            <div className="flex flex-col w-[22%] border p-6 bg-gray-600">
               <Image
                 src={yieldMaximizer}
                 alt="yield-maximizer"
@@ -79,7 +105,7 @@ export default function Home() {
                 nisi ut aliquip ex ea commodo consequat.
               </p>
             </div>
-            <div className="flex flex-col w-[22%] border p-6 bg-gray-700">
+            <div className="flex flex-col w-[22%] border p-6 bg-gray-600">
               <div>
                 <Image
                   src={autoCashOut}
@@ -96,7 +122,7 @@ export default function Home() {
                 nisi ut aliquip ex ea commodo consequat.
               </p>
             </div>
-            <div className="flex flex-col w-[22%] border p-6 bg-gray-700">
+            <div className="flex flex-col w-[22%] border p-6 bg-gray-600">
               <div>
                 <Image
                   src={multichainSupport}
