@@ -14,9 +14,9 @@ import githubLogo from "../app/public/github.svg";
 export default function Home() {
   return (
     <>
-      <div className="absolute top-0 right-0 w-full h-1/2 pointer-events-none z-0">
-        <div className="w-full h-full bg-gradient-to-b from-gray-400 to-black" />
-      </div>
+      {/* <div className="absolute top-0 right-0 w-full h-full pointer-events-none z-0">
+        <div className="w-full h-full bg-gradient-to-bl from-gray-800 to-black rounded-bl-full" />
+      </div> */}
       <header className="flex justify-between items-center sticky top-0 z-50 px-20 py-10 w-full bg-black bg-opacity-80 backdrop-blur border-b-[1px] border-gray-600">
         <Link href="/">
           <Image src={Logo} alt="logo" width={175} />
