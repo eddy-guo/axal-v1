@@ -35,7 +35,12 @@ export default function Home() {
         <h1 className="text-4xl">FEATURES</h1>
         <div className="w-full flex flex-wrap items-center justify-between">
           <div className="flex flex-col w-[22%] border p-6 bg-gray-700">
-            <Image src={autoRebalance} alt="auto-rebalance" width={64} height={64} />
+            <Image
+              src={autoRebalance}
+              alt="auto-rebalance"
+              width={64}
+              height={64}
+            />
             <h1 className="text-2xl">Auto Rebalance</h1>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -45,7 +50,12 @@ export default function Home() {
             </p>
           </div>
           <div className="flex flex-col w-[22%] border p-6 bg-gray-700">
-            <Image src={yieldMaximizer} alt="yield-maximizer" width={64} height={64} />
+            <Image
+              src={yieldMaximizer}
+              alt="yield-maximizer"
+              width={64}
+              height={64}
+            />
             <h1 className="text-2xl">Yield Maximizer</h1>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -56,7 +66,12 @@ export default function Home() {
           </div>
           <div className="flex flex-col w-[22%] border p-6 bg-gray-700">
             <div>
-              <Image src={autoCashOut} alt="auto-cash-out" width={64} height={64} />
+              <Image
+                src={autoCashOut}
+                alt="auto-cash-out"
+                width={64}
+                height={64}
+              />
             </div>
             <h1 className="text-2xl">Auto Cash-out</h1>
             <p>
@@ -68,7 +83,12 @@ export default function Home() {
           </div>
           <div className="flex flex-col w-[22%] border p-6 bg-gray-700">
             <div>
-              <Image src={multichainSupport} alt="multi-chain-support" width={64} height={64} />
+              <Image
+                src={multichainSupport}
+                alt="multi-chain-support"
+                width={64}
+                height={64}
+              />
             </div>
             <h1 className="text-2xl">Multichain Support</h1>
             <p>
@@ -78,6 +98,41 @@ export default function Home() {
               nisi ut aliquip ex ea commodo consequat.
             </p>
           </div>
+        </div>
+        <h1 className="text-4xl">READ OUR DOCS BUTTON</h1>
+
+        <section className="w-full my-12">
+          <div className="flex mb-12">
+            <div className="w-1/2 pr-8 flex flex-col justify-center">
+              <h3 className="text-2xl mb-4">Best in class security</h3>
+              <p>You keep your private keys.</p>
+            </div>
+            <div className="w-1/2 border h-64 flex items-center justify-center">
+              Image 1
+            </div>
+          </div>
+          <div className="flex mb-12">
+            <div className="w-1/2 border h-64 flex items-center justify-center">
+              Image 2
+            </div>
+            <div className="w-1/2 pl-8 flex flex-col justify-center items-end text-right">
+              <h3 className="text-2xl mb-4">Solver Execution</h3>
+              <p>Reduced slippage, gas, and MEV protection.</p>
+            </div>
+          </div>
+          <div className="flex mb-12">
+            <div className="w-1/2 pr-8 flex flex-col justify-center">
+              <h3 className="text-2xl mb-4">Title 3</h3>
+              <p>Description for title 3.</p>
+            </div>
+            <div className="w-1/2 border h-64 flex items-center justify-center">
+              Image 3
+            </div>
+          </div>
+        </section>
+
+        <div className="flex flex-co">
+          <Image src={Graphic} alt="graphic" width={500} height={500} />
         </div>
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
