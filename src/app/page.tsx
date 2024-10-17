@@ -7,58 +7,79 @@ import autoRebalance from "../app/public/auto-rebalance.svg";
 import yieldMaximizer from "../app/public/yield-maximizer.svg";
 import autoCashOut from "../app/public/auto-cash-out.svg";
 import multichainSupport from "../app/public/multi-chain-support.svg";
+import xLogo from "../app/public/x.svg";
+import discordLogo from "../app/public/discord.svg";
+import githubLogo from "../app/public/github.svg";
 
 export default function Home() {
   return (
     <>
       <header className="flex justify-between items-center sticky top-0 z-10 px-20 py-10 w-full bg-black bg-opacity-80 backdrop-blur border-b-[1px] border-gray-600">
         <Link href="/">
-          <Image src={Logo} alt="logo" width={200} />
+          <Image src={Logo} alt="logo" width={175} />
         </Link>
-        <nav className="flex gap-6">
+        <nav className="flex items-center gap-6 h-12">
           <Link
             href="mailto:hello@getaxal.com"
             target="_blank"
-            className="hover:underline hover:underline-offset-4"
+            className="hover:underline hover:underline-offset-4 flex items-center h-full"
           >
             Contact
           </Link>
           <Link
             href="https://www.ax.al/"
             target="_blank"
-            className="hover:underline hover:underline-offset-4"
+            className="hover:underline hover:underline-offset-4 flex items-center h-full"
           >
             Docs
           </Link>
           <Link
             href="https://x.com/getaxal"
             target="_blank"
-            className="hover:underline hover:underline-offset-4"
+            className="flex items-center h-full justify-center w-12 border border-gray-600 hover:border-white rounded-md transition-colors duration-150"
           >
-            X
+            <Image
+              src={xLogo}
+              alt="x-logo"
+              sizes="100vw"
+              className="w-auto h-1/2"
+            />
           </Link>
           <Link
             href="https://www.ax.al/"
             target="_blank"
-            className="hover:underline hover:underline-offset-4"
+            className="flex items-center h-full justify-center w-12 border border-gray-600 hover:border-white rounded-md transition-colors duration-150"
           >
-            Discord
+            <Image
+              src={discordLogo}
+              alt="discord-logo"
+              sizes="100vw"
+              className="w-auto h-1/2"
+            />
           </Link>
           <Link
             href="https://github.com/getaxal"
             target="_blank"
-            className="hover:underline hover:underline-offset-4"
+            className="flex items-center h-full justify-center w-12 border border-gray-600 hover:border-white rounded-md transition-colors duration-150"
           >
-            GitHub
+            <Image
+              src={githubLogo}
+              alt="github-logo"
+              sizes="100vw"
+              className="w-auto h-1/2"
+            />
           </Link>
-          <Link href="/" className="hover:underline hover:underline-offset-4">
+          <Link
+            href="/"
+            className="hover:underline hover:underline-offset-4 flex items-center h-full"
+          >
             Connectkit
           </Link>
         </nav>
       </header>
       <div className="flex flex-col min-h-full min-h-screen pb-10 px-20 font-[family-name:var(--font-geist-sans)]">
         <main className="flex-grow flex flex-col items-center justify-center">
-          <h1 className="text-7xl py-10">
+          <h1 className="text-7xl py-10 ">
             Your crypto wallet on <br />
             <u>autopilot</u>
           </h1>
