@@ -2,7 +2,8 @@ import Image from "next/image";
 import Logo from "../app/public/logo.svg";
 import Link from "next/link";
 
-import Graphic from "../app/public/graphic.png";
+import graphic from "../app/public/graphic.png";
+import graphic2 from "../app/public/graphic-2.png";
 import autoRebalance from "../app/public/auto-rebalance.svg";
 import yieldMaximizer from "../app/public/yield-maximizer.svg";
 import autoCashOut from "../app/public/auto-cash-out.svg";
@@ -17,7 +18,7 @@ export default function Home() {
       {/* <div className="absolute top-0 right-0 w-full h-full pointer-events-none z-0">
         <div className="w-full h-full bg-gradient-to-bl from-gray-800 to-black rounded-bl-full" />
       </div> */}
-      <header className="flex justify-between items-center sticky top-0 z-50 px-20 py-10 w-full bg-black bg-opacity-80 backdrop-blur border-b-[1px] border-neutral-600">
+      <header className="flex justify-between items-center sticky top-0 z-50 px-20 py-10 w-full bg-black bg-opacity-50 backdrop-blur border-b-[1px] border-neutral-600">
         <Link href="/">
           <Image src={Logo} alt="logo" width={175} />
         </Link>
@@ -98,30 +99,30 @@ export default function Home() {
               <Link
                 href="/"
                 target="_blank"
-                className="bg-neutral-600 border border-neutral-600 hover:bg-neutral-800 text-white font-bold py-4 px-6 rounded-lg mr-5"
+                className="bg-neutral-600 border border-neutral-600 hover:bg-neutral-800 hover:border-white text-white font-bold py-4 px-6 rounded-lg mr-5"
               >
                 Get Started
               </Link>
               <Link
                 href="https://www.ax.al/"
                 target="_blank"
-                className="border border-neutral-600 hover:bg-neutral-800 text-white font-bold py-4 px-6 rounded-lg mx-5"
+                className="border border-neutral-600 hover:bg-neutral-800 hover:border-white text-white font-bold py-4 px-6 rounded-lg mx-5"
               >
                 Learn More
               </Link>
             </div>
-            <Image src={Graphic} alt="graphic" width={500} height={500} />
+            <Image src={graphic2} alt="graphic-2" width={500} height={500} />
           </div>
           <div className="py-20">
-            <h1 className="text-5xl pb-5">How it works</h1>
-            <ul className="list-disc">
-              <li className="text-xl py-1">Assess your risk</li>
-              <li className="text-xl py-1">Approve your wallet strategy</li>
-              <li className="text-xl py-1">Earn yield in your sleep</li>
+            <h1 className="text-5xl pb-5 font-bold">How it works</h1>
+            <ul className="list-disc text-xl py-1">
+              <li>Assess your risk</li>
+              <li>Approve your wallet strategy</li>
+              <li>Earn yield in your sleep</li>
             </ul>
           </div>
 
-          <h1 className="text-5xl py-5">Features</h1>
+          <h1 className="text-5xl py-5 font-bold">Features</h1>
           <div className="w-full flex flex-wrap items-center justify-between py-5">
             <div className="flex flex-col w-[22%] p-6 border border-neutral-600 bg-neutral-900 hover:border-white transition-colors duration-150">
               <Image
@@ -131,8 +132,8 @@ export default function Home() {
                 height={64}
                 className="border"
               />
-              <h1 className="text-2xl py-5">Auto Rebalance</h1>
-              <p>
+              <h1 className="text-2xl font-bold py-5">Auto Rebalance</h1>
+              <p className="text-neutral-400">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </p>
@@ -145,8 +146,8 @@ export default function Home() {
                 height={64}
                 className="border"
               />
-              <h1 className="text-2xl py-5">Yield Maximizer</h1>
-              <p>
+              <h1 className="text-2xl font-bold py-5">Yield Maximizer</h1>
+              <p className="text-neutral-400">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </p>
@@ -161,8 +162,8 @@ export default function Home() {
                   className="border"
                 />
               </div>
-              <h1 className="text-2xl py-5">Auto Cash-out</h1>
-              <p>
+              <h1 className="text-2xl font-bold py-5">Auto Cash-out</h1>
+              <p className="text-neutral-400">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </p>
@@ -177,8 +178,8 @@ export default function Home() {
                   className="border"
                 />
               </div>
-              <h1 className="text-2xl py-5">Multichain Support</h1>
-              <p>
+              <h1 className="text-2xl font-bold py-5">Multichain Support</h1>
+              <p className="text-neutral-400">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </p>
@@ -195,13 +196,15 @@ export default function Home() {
           <section className="w-3/4 py-16">
             <div className="flex">
               <div className="w-1/2 pr-8 flex flex-col justify-center">
-                <h1 className="text-4xl my-4">Best-in-class security</h1>
+                <h1 className="text-4xl my-4 font-bold">
+                  Best-in-class security
+                </h1>
                 <p className="text-xl my-1">You keep your private keys.</p>
               </div>
               <div className="w-1/2 relative aspect-square border">
                 <Image
-                  src={Graphic}
-                  alt="Graphic"
+                  src={graphic}
+                  alt="graphic"
                   layout="fill"
                   objectFit="contain"
                 />
@@ -210,14 +213,14 @@ export default function Home() {
             <div className="flex">
               <div className="w-1/2 relative aspect-square border">
                 <Image
-                  src={Graphic}
-                  alt="Graphic"
+                  src={graphic}
+                  alt="graphic"
                   layout="fill"
                   objectFit="contain"
                 />
               </div>
               <div className="w-1/2 pl-8 flex flex-col justify-center items-end text-right">
-                <h1 className="text-4xl my-4">Solver Execution</h1>
+                <h1 className="text-4xl my-4 font-bold">Solver Execution</h1>
                 <p className="text-xl my-1">
                   Reduced slippage, gas, and MEV protection.
                 </p>
@@ -225,13 +228,13 @@ export default function Home() {
             </div>
             <div className="flex">
               <div className="w-1/2 pr-8 flex flex-col justify-center">
-                <h1 className="text-4xl my-4">Title 3</h1>
+                <h1 className="text-4xl my-4 font-bold">Title 3</h1>
                 <p className="text-xl my-1">Description for title 3.</p>
               </div>
               <div className="w-1/2 relative aspect-square border">
                 <Image
-                  src={Graphic}
-                  alt="Graphic"
+                  src={graphic}
+                  alt="graphic"
                   layout="fill"
                   objectFit="contain"
                 />
