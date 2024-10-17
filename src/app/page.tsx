@@ -14,10 +14,10 @@ import githubLogo from "../app/public/github.svg";
 export default function Home() {
   return (
     <>
-      <div className="absolute top-0 right-0 w-64 h-64 pointer-events-none">
-        <div className="w-full h-full bg-gradient-to-bl from-gray-800 to-transparent rounded-bl-full" />
+      <div className="absolute top-0 right-0 w-64 h-64 pointer-events-none z-0">
+        <Image src={Graphic} alt="graphic" width={2000} height={2000} />
       </div>
-      <header className="flex justify-between items-center sticky top-0 z-10 px-20 py-10 w-full bg-black bg-opacity-80 backdrop-blur border-b-[1px] border-gray-600">
+      <header className="flex justify-between items-center sticky top-0 z-50 px-20 py-10 w-full bg-black bg-opacity-80 backdrop-blur border-b-[1px] border-gray-600">
         <Link href="/">
           <Image src={Logo} alt="logo" width={175} />
         </Link>
@@ -81,7 +81,7 @@ export default function Home() {
         </nav>
       </header>
       <div className="flex flex-col min-h-full min-h-screen pb-10 px-20 font-[family-name:var(--font-geist-sans)]">
-        <main className="flex-grow flex flex-col items-center">
+        <main className="flex-grow flex flex-col items-center z-10">
           <h1 className="w-full text-7xl pt-20">
             Your crypto wallet on <br />
             <b>
