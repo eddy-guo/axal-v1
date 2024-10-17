@@ -20,19 +20,19 @@ export default function Home() {
         <Link href="/">Connectkit</Link>
       </header>
       <main className="flex-grow flex flex-col items-center justify-center">
-        <h1 className="text-6xl">Your crypto wallet on autopilot</h1>
+        <h1 className="text-7xl">Your crypto wallet on autopilot</h1>
         <p>
           A personalized trading bot for complex, multi-step wallet strategies.
           Agents guarantee smart execution.
         </p>
         <Image src={Graphic} alt="graphic" width={500} height={500} />
-        <h1 className="text-4xl">HOW IT WORKS</h1>
+        <h1 className="text-5xl">HOW IT WORKS</h1>
         <ul className="list-disc">
           <li>Assess your risk</li>
           <li>Approve your wallet strategy</li>
           <li>Earn yield in your sleep</li>
         </ul>
-        <h1 className="text-4xl">FEATURES</h1>
+        <h1 className="text-5xl">FEATURES</h1>
         <div className="w-full flex flex-wrap items-center justify-between">
           <div className="flex flex-col w-[22%] border p-6 bg-gray-700">
             <Image
@@ -99,41 +99,52 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <h1 className="text-4xl">READ OUR DOCS BUTTON</h1>
+        <h1 className="text-5xl">READ OUR DOCS BUTTON</h1>
 
-        <section className="w-full my-12">
+        <section className="w-3/4 my-12">
           <div className="flex mb-12">
             <div className="w-1/2 pr-8 flex flex-col justify-center">
-              <h3 className="text-2xl mb-4">Best in class security</h3>
+              <h3 className="text-3xl mb-4">Best in class security</h3>
               <p>You keep your private keys.</p>
             </div>
-            <div className="w-1/2 border h-64 flex items-center justify-center">
-              Image 1
+            <div className="w-1/2 relative aspect-square">
+              <Image
+                src={Graphic}
+                alt="Graphic"
+                layout="fill"
+                objectFit="contain"
+              />
             </div>
           </div>
           <div className="flex mb-12">
-            <div className="w-1/2 border h-64 flex items-center justify-center">
-              Image 2
+            <div className="w-1/2 relative aspect-square">
+              <Image
+                src={Graphic}
+                alt="Graphic"
+                layout="fill"
+                objectFit="contain"
+              />
             </div>
             <div className="w-1/2 pl-8 flex flex-col justify-center items-end text-right">
-              <h3 className="text-2xl mb-4">Solver Execution</h3>
+              <h3 className="text-3xl mb-4">Solver Execution</h3>
               <p>Reduced slippage, gas, and MEV protection.</p>
             </div>
           </div>
           <div className="flex mb-12">
             <div className="w-1/2 pr-8 flex flex-col justify-center">
-              <h3 className="text-2xl mb-4">Title 3</h3>
+              <h3 className="text-3xl mb-4">Title 3</h3>
               <p>Description for title 3.</p>
             </div>
-            <div className="w-1/2 border h-64 flex items-center justify-center">
-              Image 3
+            <div className="w-1/2 relative aspect-square">
+              <Image
+                src={Graphic}
+                alt="Graphic"
+                layout="fill"
+                objectFit="contain"
+              />
             </div>
           </div>
         </section>
-
-        <div className="flex flex-co">
-          <Image src={Graphic} alt="graphic" width={500} height={500} />
-        </div>
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
         <a
