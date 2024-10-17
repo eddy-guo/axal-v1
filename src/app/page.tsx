@@ -14,8 +14,8 @@ import githubLogo from "../app/public/github.svg";
 export default function Home() {
   return (
     <>
-      <div className="absolute top-0 right-0 w-64 h-64 pointer-events-none z-0">
-        <Image src={Graphic} alt="graphic" width={2000} height={2000} />
+      <div className="absolute top-0 right-0 w-full h-1/2 pointer-events-none z-0">
+        <div className="w-full h-full bg-gradient-to-b from-gray-400 to-black" />
       </div>
       <header className="flex justify-between items-center sticky top-0 z-50 px-20 py-10 w-full bg-black bg-opacity-80 backdrop-blur border-b-[1px] border-gray-600">
         <Link href="/">
@@ -82,18 +82,22 @@ export default function Home() {
       </header>
       <div className="flex flex-col min-h-full min-h-screen pb-10 px-20 font-[family-name:var(--font-geist-sans)]">
         <main className="flex-grow flex flex-col items-center z-10">
-          <h1 className="w-full text-7xl pt-20">
-            Your crypto wallet on <br />
-            <b>
-              <u>Autopilot</u>
-            </b>
-          </h1>
-          <p className="w-full text-left text-xl py-5">
-            A personalized trading bot for complex, multi-step wallet
-            strategies. <br />
-            Agents guarantee smart execution.
-          </p>
-          {/* <Image src={Graphic} alt="graphic" width={500} height={500} /> */}
+          <div className="flex justify-between w-full">
+            <div>
+              <h1 className="text-7xl pt-20">
+                Your crypto wallet on <br />
+                <b>
+                  <u>Autopilot</u>
+                </b>
+              </h1>
+              <p className="text-left text-xl py-5">
+                A personalized trading bot for complex, multi-step wallet
+                strategies. <br />
+                Agents guarantee smart execution.
+              </p>
+            </div>
+            <Image src={Graphic} alt="graphic" width={500} height={500} />
+          </div>
           <div className="py-20">
             <h1 className="text-5xl pb-5">How it works</h1>
             <ul className="list-disc">
