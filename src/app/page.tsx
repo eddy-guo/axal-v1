@@ -78,96 +78,104 @@ export default function Home() {
         </nav>
       </header>
       <div className="flex flex-col min-h-full min-h-screen pb-10 px-20 font-[family-name:var(--font-geist-sans)]">
-        <main className="flex-grow flex flex-col items-center justify-center">
-          <h1 className="text-7xl py-10 ">
+        <main className="flex-grow flex flex-col items-center">
+          <h1 className="w-full text-7xl pt-20">
             Your crypto wallet on <br />
-            <u>autopilot</u>
+            <b>
+              <u>Autopilot</u>
+            </b>
           </h1>
-          <p>
+          <p className="w-full text-left text-xl py-5">
             A personalized trading bot for complex, multi-step wallet
-            strategies. Agents guarantee smart execution.
+            strategies. <br />
+            Agents guarantee smart execution.
           </p>
-          <Image src={Graphic} alt="graphic" width={500} height={500} />
-          <h1 className="text-5xl">HOW IT WORKS</h1>
-          <ul className="list-disc">
-            <li>Assess your risk</li>
-            <li>Approve your wallet strategy</li>
-            <li>Earn yield in your sleep</li>
-          </ul>
-          <h1 className="text-5xl">FEATURES</h1>
-          <div className="w-full flex flex-wrap items-center justify-between">
-            <div className="flex flex-col w-[22%] border p-6 bg-gray-600">
+          {/* <Image src={Graphic} alt="graphic" width={500} height={500} /> */}
+          <div className="py-20">
+            <h1 className="text-5xl pb-5">How it works</h1>
+            <ul className="list-disc">
+              <li className="text-xl py-1">Assess your risk</li>
+              <li className="text-xl py-1">Approve your wallet strategy</li>
+              <li className="text-xl py-1">Earn yield in your sleep</li>
+            </ul>
+          </div>
+
+          <h1 className="text-5xl py-5">Features</h1>
+          <div className="w-full flex flex-wrap items-center justify-between py-5">
+            <div className="flex flex-col w-[22%] p-6 border border-gray-600 bg-neutral-900 hover:border-white transition-colors duration-150">
               <Image
                 src={autoRebalance}
                 alt="auto-rebalance"
                 width={64}
                 height={64}
+                className="border"
               />
-              <h1 className="text-2xl">Auto Rebalance</h1>
+              <h1 className="text-2xl py-5">Auto Rebalance</h1>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </p>
             </div>
-            <div className="flex flex-col w-[22%] border p-6 bg-gray-600">
+            <div className="flex flex-col w-[22%] p-6 border border-gray-600 bg-neutral-900 hover:border-white transition-colors duration-150">
               <Image
                 src={yieldMaximizer}
                 alt="yield-maximizer"
                 width={64}
                 height={64}
+                className="border"
               />
-              <h1 className="text-2xl">Yield Maximizer</h1>
+              <h1 className="text-2xl py-5">Yield Maximizer</h1>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </p>
             </div>
-            <div className="flex flex-col w-[22%] border p-6 bg-gray-600">
+            <div className="flex flex-col w-[22%] p-6 border border-gray-600 bg-neutral-900 hover:border-white transition-colors duration-150">
               <div>
                 <Image
                   src={autoCashOut}
                   alt="auto-cash-out"
                   width={64}
                   height={64}
+                  className="border"
                 />
               </div>
-              <h1 className="text-2xl">Auto Cash-out</h1>
+              <h1 className="text-2xl py-5">Auto Cash-out</h1>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </p>
             </div>
-            <div className="flex flex-col w-[22%] border p-6 bg-gray-600">
+            <div className="flex flex-col w-[22%] p-6 border border-gray-600 bg-neutral-900 hover:border-white transition-colors duration-150">
               <div>
                 <Image
                   src={multichainSupport}
                   alt="multi-chain-support"
                   width={64}
                   height={64}
+                  className="border"
                 />
               </div>
-              <h1 className="text-2xl">Multichain Support</h1>
+              <h1 className="text-2xl py-5">Multichain Support</h1>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </p>
             </div>
           </div>
-          <h1 className="text-3xl">READ OUR DOCS BUTTON</h1>
+          <Link
+            href="https://www.ax.al/"
+            target="_blank"
+            className="text-xl py-5 hover:underline hover:underline-offset-4 flex items-center h-full"
+          >
+            Read Documentation ↗
+          </Link>
 
-          <section className="w-3/4 my-12">
+          <section className="w-3/4 py-16">
             <div className="flex">
               <div className="w-1/2 pr-8 flex flex-col justify-center">
-                <h1 className="text-4xl mb-4">Best in class security</h1>
-                <p className="text-xl">You keep your private keys.</p>
+                <h1 className="text-4xl my-4">Best-in-class security</h1>
+                <p className="text-xl my-1">You keep your private keys.</p>
               </div>
               <div className="w-1/2 relative aspect-square border">
                 <Image
@@ -188,16 +196,16 @@ export default function Home() {
                 />
               </div>
               <div className="w-1/2 pl-8 flex flex-col justify-center items-end text-right">
-                <h1 className="text-4xl mb-4">Solver Execution</h1>
-                <p className="text-xl">
+                <h1 className="text-4xl my-4">Solver Execution</h1>
+                <p className="text-xl my-1">
                   Reduced slippage, gas, and MEV protection.
                 </p>
               </div>
             </div>
             <div className="flex">
               <div className="w-1/2 pr-8 flex flex-col justify-center">
-                <h1 className="text-4xl mb-4">Title 3</h1>
-                <p className="text-xl">Description for title 3.</p>
+                <h1 className="text-4xl my-4">Title 3</h1>
+                <p className="text-xl my-1">Description for title 3.</p>
               </div>
               <div className="w-1/2 relative aspect-square border">
                 <Image
@@ -210,37 +218,37 @@ export default function Home() {
             </div>
           </section>
         </main>
-        <footer className="w-full flex justify-between items-center">
-          <div>
-            <a
-              className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-              href="https://www.ax.al/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              © 2024 - Axal
-            </a>
-          </div>
-          <div className="flex gap-6">
-            <a
-              className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Terms of Use
-            </a>
-            <a
-              className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-              href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Privacy Policy
-            </a>
-          </div>
-        </footer>
       </div>
+      <footer className="w-full flex justify-between items-center px-20 py-5 border-t-[1px] border-gray-600">
+        <div>
+          <a
+            className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+            href="https://www.ax.al/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            © 2024 - Axal
+          </a>
+        </div>
+        <div className="flex gap-6">
+          <a
+            className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Terms of Use
+          </a>
+          <a
+            className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+            href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Privacy Policy
+          </a>
+        </div>
+      </footer>
     </>
   );
 }
