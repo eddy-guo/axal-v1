@@ -1,7 +1,12 @@
 import Image from "next/image";
 import Logo from "../app/public/logo.svg";
-import Graphic from "../app/public/graphic.png";
 import Link from "next/link";
+
+import Graphic from "../app/public/graphic.png";
+import autoRebalance from "../app/public/auto-rebalance.svg";
+import yieldMaximizer from "../app/public/yield-maximizer.svg";
+import autoCashOut from "../app/public/auto-cash-out.svg";
+import multichainSupport from "../app/public/multi-chain-support.svg";
 
 export default function Home() {
   return (
@@ -30,7 +35,7 @@ export default function Home() {
         <h1 className="text-4xl">FEATURES</h1>
         <div className="w-full flex flex-wrap items-center justify-between">
           <div className="flex flex-col w-[22%] border p-6 bg-gray-700">
-            <Image src={Graphic} alt="graphic" width={64} height={64} />
+            <Image src={autoRebalance} alt="auto-rebalance" width={64} height={64} />
             <h1 className="text-2xl">Auto Rebalance</h1>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -40,7 +45,7 @@ export default function Home() {
             </p>
           </div>
           <div className="flex flex-col w-[22%] border p-6 bg-gray-700">
-            <Image src={Graphic} alt="graphic" width={64} height={64} />
+            <Image src={yieldMaximizer} alt="yield-maximizer" width={64} height={64} />
             <h1 className="text-2xl">Yield Maximizer</h1>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -51,7 +56,7 @@ export default function Home() {
           </div>
           <div className="flex flex-col w-[22%] border p-6 bg-gray-700">
             <div>
-              <Image src={Graphic} alt="graphic" width={64} height={64} />
+              <Image src={autoCashOut} alt="auto-cash-out" width={64} height={64} />
             </div>
             <h1 className="text-2xl">Auto Cash-out</h1>
             <p>
@@ -63,7 +68,7 @@ export default function Home() {
           </div>
           <div className="flex flex-col w-[22%] border p-6 bg-gray-700">
             <div>
-              <Image src={Graphic} alt="graphic" width={64} height={64} />
+              <Image src={multichainSupport} alt="multi-chain-support" width={64} height={64} />
             </div>
             <h1 className="text-2xl">Multichain Support</h1>
             <p>
