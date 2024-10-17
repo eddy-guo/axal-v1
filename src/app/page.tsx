@@ -10,7 +10,7 @@ import multichainSupport from "../app/public/multi-chain-support.svg";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-full min-h-screen px-20 font-[family-name:var(--font-geist-sans)]">
+    <div className="flex flex-col min-h-full min-h-screen py-10 px-20 font-[family-name:var(--font-geist-sans)]">
       <header className="flex flex-row sticky top-0 z-10">
         <Link href="/">
           <Image src={Logo} alt="logo" />
@@ -99,15 +99,15 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <h1 className="text-5xl">READ OUR DOCS BUTTON</h1>
+        <h1 className="text-3xl">READ OUR DOCS BUTTON</h1>
 
         <section className="w-3/4 my-12">
-          <div className="flex mb-12">
+          <div className="flex">
             <div className="w-1/2 pr-8 flex flex-col justify-center">
-              <h3 className="text-3xl mb-4">Best in class security</h3>
-              <p>You keep your private keys.</p>
+              <h1 className="text-4xl mb-4">Best in class security</h1>
+              <p className="text-xl">You keep your private keys.</p>
             </div>
-            <div className="w-1/2 relative aspect-square">
+            <div className="w-1/2 relative aspect-square border">
               <Image
                 src={Graphic}
                 alt="Graphic"
@@ -116,8 +116,8 @@ export default function Home() {
               />
             </div>
           </div>
-          <div className="flex mb-12">
-            <div className="w-1/2 relative aspect-square">
+          <div className="flex">
+            <div className="w-1/2 relative aspect-square border">
               <Image
                 src={Graphic}
                 alt="Graphic"
@@ -126,16 +126,18 @@ export default function Home() {
               />
             </div>
             <div className="w-1/2 pl-8 flex flex-col justify-center items-end text-right">
-              <h3 className="text-3xl mb-4">Solver Execution</h3>
-              <p>Reduced slippage, gas, and MEV protection.</p>
+              <h1 className="text-4xl mb-4">Solver Execution</h1>
+              <p className="text-xl">
+                Reduced slippage, gas, and MEV protection.
+              </p>
             </div>
           </div>
-          <div className="flex mb-12">
+          <div className="flex">
             <div className="w-1/2 pr-8 flex flex-col justify-center">
-              <h3 className="text-3xl mb-4">Title 3</h3>
-              <p>Description for title 3.</p>
+              <h1 className="text-4xl mb-4">Title 3</h1>
+              <p className="text-xl">Description for title 3.</p>
             </div>
-            <div className="w-1/2 relative aspect-square">
+            <div className="w-1/2 relative aspect-square border">
               <Image
                 src={Graphic}
                 alt="Graphic"
@@ -146,31 +148,35 @@ export default function Home() {
           </div>
         </section>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Go to nextjs.org
-        </a>
+      <footer className="w-full flex justify-between items-center">
+        <div>
+          <a
+            className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+            href="https://www.ax.al/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            © 2024 - Axal
+          </a>
+        </div>
+        <div className="flex gap-6">
+          <a
+            className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Terms of Use
+          </a>
+          <a
+            className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+            href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Privacy Policy
+          </a>
+        </div>
       </footer>
     </div>
   );
