@@ -17,7 +17,7 @@ export default function Home() {
       {/* <div className="absolute top-0 right-0 w-full h-full pointer-events-none z-0">
         <div className="w-full h-full bg-gradient-to-bl from-gray-800 to-black rounded-bl-full" />
       </div> */}
-      <header className="flex justify-between items-center sticky top-0 z-50 px-20 py-10 w-full bg-black bg-opacity-80 backdrop-blur border-b-[1px] border-gray-600">
+      <header className="flex justify-between items-center sticky top-0 z-50 px-20 py-10 w-full bg-black bg-opacity-80 backdrop-blur border-b-[1px] border-neutral-600">
         <Link href="/">
           <Image src={Logo} alt="logo" width={175} />
         </Link>
@@ -39,7 +39,7 @@ export default function Home() {
           <Link
             href="https://x.com/getaxal"
             target="_blank"
-            className="flex items-center h-full justify-center w-12 border border-gray-600 hover:border-white rounded-md transition-colors duration-150"
+            className="flex items-center h-full justify-center w-12 border border-neutral-600 hover:border-white rounded-md transition-colors duration-150"
           >
             <Image
               src={xLogo}
@@ -51,7 +51,7 @@ export default function Home() {
           <Link
             href="https://www.ax.al/"
             target="_blank"
-            className="flex items-center h-full justify-center w-12 border border-gray-600 hover:border-white rounded-md transition-colors duration-150"
+            className="flex items-center h-full justify-center w-12 border border-neutral-600 hover:border-white rounded-md transition-colors duration-150"
           >
             <Image
               src={discordLogo}
@@ -63,7 +63,7 @@ export default function Home() {
           <Link
             href="https://github.com/getaxal"
             target="_blank"
-            className="flex items-center h-full justify-center w-12 border border-gray-600 hover:border-white rounded-md transition-colors duration-150"
+            className="flex items-center h-full justify-center w-12 border border-neutral-600 hover:border-white rounded-md transition-colors duration-150"
           >
             <Image
               src={githubLogo}
@@ -76,7 +76,7 @@ export default function Home() {
             href="/"
             className="hover:underline hover:underline-offset-4 flex items-center h-full"
           >
-            Connectkit
+            ConnectKit
           </Link>
         </nav>
       </header>
@@ -90,11 +90,25 @@ export default function Home() {
                   <u>Autopilot</u>
                 </b>
               </h1>
-              <p className="text-left text-xl py-5">
+              <p className="text-left text-xl py-10">
                 A personalized trading bot for complex, multi-step wallet
                 strategies. <br />
                 Agents guarantee smart execution.
               </p>
+              <Link
+                href="/"
+                target="_blank"
+                className="bg-neutral-600 border border-neutral-600 hover:bg-neutral-800 text-white font-bold py-4 px-6 rounded-lg mr-5"
+              >
+                Get Started
+              </Link>
+              <Link
+                href="https://www.ax.al/"
+                target="_blank"
+                className="border border-neutral-600 hover:bg-neutral-800 text-white font-bold py-4 px-6 rounded-lg mx-5"
+              >
+                Learn More
+              </Link>
             </div>
             <Image src={Graphic} alt="graphic" width={500} height={500} />
           </div>
@@ -109,7 +123,7 @@ export default function Home() {
 
           <h1 className="text-5xl py-5">Features</h1>
           <div className="w-full flex flex-wrap items-center justify-between py-5">
-            <div className="flex flex-col w-[22%] p-6 border border-gray-600 bg-neutral-900 hover:border-white transition-colors duration-150">
+            <div className="flex flex-col w-[22%] p-6 border border-neutral-600 bg-neutral-900 hover:border-white transition-colors duration-150">
               <Image
                 src={autoRebalance}
                 alt="auto-rebalance"
@@ -123,7 +137,7 @@ export default function Home() {
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </p>
             </div>
-            <div className="flex flex-col w-[22%] p-6 border border-gray-600 bg-neutral-900 hover:border-white transition-colors duration-150">
+            <div className="flex flex-col w-[22%] p-6 border border-neutral-600 bg-neutral-900 hover:border-white transition-colors duration-150">
               <Image
                 src={yieldMaximizer}
                 alt="yield-maximizer"
@@ -137,7 +151,7 @@ export default function Home() {
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </p>
             </div>
-            <div className="flex flex-col w-[22%] p-6 border border-gray-600 bg-neutral-900 hover:border-white transition-colors duration-150">
+            <div className="flex flex-col w-[22%] p-6 border border-neutral-600 bg-neutral-900 hover:border-white transition-colors duration-150">
               <div>
                 <Image
                   src={autoCashOut}
@@ -153,7 +167,7 @@ export default function Home() {
                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
               </p>
             </div>
-            <div className="flex flex-col w-[22%] p-6 border border-gray-600 bg-neutral-900 hover:border-white transition-colors duration-150">
+            <div className="flex flex-col w-[22%] p-6 border border-neutral-600 bg-neutral-900 hover:border-white transition-colors duration-150">
               <div>
                 <Image
                   src={multichainSupport}
@@ -226,7 +240,7 @@ export default function Home() {
           </section>
         </main>
       </div>
-      <footer className="w-full flex justify-between items-center px-20 py-5 border-t-[1px] border-gray-600">
+      <footer className="w-full flex justify-between items-center px-20 py-5 border-t-[1px] border-neutral-600">
         <div>
           <a
             className="flex items-center gap-2 hover:underline hover:underline-offset-4"
