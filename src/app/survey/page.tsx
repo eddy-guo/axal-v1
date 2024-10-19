@@ -25,39 +25,39 @@ interface Answer {
 const questions: Question[] = [
   {
     id: 1,
-    text: "You identify yourself as a",
+    text: "You identify yourself as a:",
     options: {
-      "knowledgeable investor interested in crypto": 0,
-      "seasoned crypto investor": 1,
-      "complete degen": 2,
+      "Knowledgeable investor interested in crypto": 0,
+      "Seasoned crypto investor": 1,
+      "Complete degen": 2,
     },
   },
   {
     id: 2,
-    text: "I [plan/do not plan] to withdraw my profits in three years or less.",
-    options: { "do not plan": 0, plan: 2, undecided: 1 },
+    text: "I plan to withdraw my profits in:",
+    options: { "< 1 year": 2, "5+ years": 0, undecided: 1 },
   },
   {
     id: 3,
     text: "I think buying memecoins is",
-    options: { "a terrible idea": 0, "long on culture": 1, goated: 2 },
+    options: { "a terrible idea": 0, "long on culture": 1, "🐐 goated 🐐": 2 },
   },
   {
     id: 4,
     text: "Your wallet is up 40%. What do you do?",
     options: {
-      "Sell and move to a lower risk investment": 0,
-      "Consider selling enough to cover your original investment": 1,
-      "Buy more": 2,
+      "Liquidate and move to a lower risk investment": 0,
+      "Sell enough to cover your original investment, hold the rest": 1,
+      "Buy more 💸": 2,
     },
   },
   {
     id: 5,
-    text: "Your friend is launching a token and wants you to buy; what do you say?",
+    text: "A friend launches a token and wants you to buy; your response?",
     options: {
-      "You're an idiot": 0,
-      "Let me look into it and get back to you": 1,
-      "I'm in": 2,
+      "You're an idiot.": 0,
+      "Let me look into it and get back to you.": 1,
+      "I'm in!": 2,
     },
   },
 ];
@@ -72,7 +72,6 @@ export default function Home() {
     const newAnswers = { ...answers, [questionId]: { answer, value } };
     setAnswers(newAnswers);
 
-    // Calculate new risk factor
     const newRiskFactor = Object.values(newAnswers).reduce(
       (sum, ans) => sum + ans.value,
       0
@@ -84,18 +83,33 @@ export default function Home() {
     }
   };
 
+  const goToNextQuestion = () => {
+    if (currentQuestion < questions.length - 1) {
+      setCurrentQuestion(currentQuestion + 1);
+    }
+  };
+
+  const goToPreviousQuestion = () => {
+    if (currentQuestion > 0) {
+      setCurrentQuestion(currentQuestion - 1);
+    }
+  };
+
   const renderQuestion = (question: Question, index: number) => (
     <div key={question.id} className="mb-8">
       <h2 className="text-xl mb-4">
-        Question {index + 1}: {question.text}
+        <b>
+          {index + 1}/{questions.length}:
+        </b>{" "}
+        {question.text}
       </h2>
-      <div className="space-y-2">
+      <div className="flex flex-col gap-2">
         {Object.entries(question.options).map(
           ([option, value], optionIndex) => (
             <button
               key={optionIndex}
               onClick={() => handleAnswer(question.id, option, value)}
-              className={`w-full py-2 px-4 rounded transition duration-200 ${
+              className={`w-3/4 py-2 px-4 rounded transition duration-200 text-left ${
                 answers[question.id]?.answer === option
                   ? "bg-blue-600 text-white"
                   : "bg-gray-800 hover:bg-gray-700 active:bg-blue-600"
@@ -109,8 +123,8 @@ export default function Home() {
     </div>
   );
   return (
-    <>
-      <div className="absolute top-0 right-0 w-full h-full pointer-events-none z-0">
+    <div className="flex flex-col min-h-screen">
+      <div className="absolute top-0 right-0 inset-0 w-full h-full pointer-events-none z-0">
         <div className="w-full h-full bg-gradient-to-bl from-gray-500 via-black to-black rounded-bl-full" />
       </div>
       <header className="flex justify-between items-center sticky top-0 z-50 px-20 py-10 w-full bg-black bg-opacity-50 backdrop-blur border-b-[1px] border-neutral-600">
@@ -176,9 +190,9 @@ export default function Home() {
           </Link>
         </nav>
       </header>
-      <div className="flex flex-col min-h-full min-h-screen pb-10 px-20 font-[family-name:var(--font-geist-sans)]">
-        <main className="flex-grow flex flex-col items-center justify-center z-10">
-          <div className="w-full max-w-2xl">
+      <div className="flex-grow flex flex-col pb-10 px-20 font-[family-name:var(--font-geist-sans)]">
+        <main className="flex-grow flex flex-col min-h-full items-center z-10">
+          <div className="w-full max-w-2xl py-20">
             <h1 className="text-3xl font-bold mb-8 text-center">
               Investor Profile Questionnaire
             </h1>
@@ -197,15 +211,37 @@ export default function Home() {
                 )}
               </div>
             ) : (
-              renderQuestion(questions[currentQuestion], currentQuestion)
+              <>
+                {renderQuestion(questions[currentQuestion], currentQuestion)}
+                <div className="flex justify-between mt-4">
+                  <button
+                    onClick={goToPreviousQuestion}
+                    disabled={currentQuestion === 0}
+                    className="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    ← Back
+                  </button>
+                  <button
+                    onClick={goToNextQuestion}
+                    disabled={currentQuestion === questions.length - 1}
+                    className="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    Next →
+                  </button>
+                </div>
+              </>
             )}
             <div className="mt-8 text-center">
               <p className="text-xl">Current Risk Factor: {riskFactor}</p>
+              <p className="text-sm mt-2">
+                (Based on {Object.keys(answers).length} of {questions.length}{" "}
+                questions answered)
+              </p>
             </div>
           </div>
         </main>
       </div>
-      <footer className="w-full flex justify-between items-center px-20 py-5 border-t-[1px] border-neutral-600">
+      <footer className="w-full flex justify-between items-center px-20 py-5 mt-auto border-t-[1px] border-neutral-600 relative z-10">
         <div>
           <a
             className="flex items-center gap-2 hover:underline hover:underline-offset-4"
@@ -235,6 +271,6 @@ export default function Home() {
           </a>
         </div>
       </footer>
-    </>
+    </div>
   );
 }
