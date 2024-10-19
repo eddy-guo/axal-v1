@@ -1,7 +1,7 @@
 import Image from "next/image";
-import Logo from "../app/public/logo.svg";
 import Link from "next/link";
 
+import Logo from "../app/public/logo.svg";
 import graphic from "../app/public/graphic.png";
 import graphic2 from "../app/public/graphic-2.png";
 import autoRebalance from "../app/public/auto-rebalance.svg";
@@ -257,7 +257,7 @@ export default function Home() {
         <div className="flex gap-6">
           <a
             className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href="https://www.ax.al/"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -265,7 +265,7 @@ export default function Home() {
           </a>
           <a
             className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-            href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href="https://www.ax.al/"
             target="_blank"
             rel="noopener noreferrer"
           >
