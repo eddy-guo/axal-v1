@@ -14,6 +14,7 @@ interface Question {
 }
 
 interface Answer {
+  question: string;
   answer: string;
   value: number;
 }
@@ -64,8 +65,16 @@ export default function Home() {
   const [isReviewMode, setIsReviewMode] = useState(false);
   const [riskFactor, setRiskFactor] = useState(0);
 
-  const handleAnswer = (questionId: number, answer: string, value: number) => {
-    const newAnswers = { ...answers, [questionId]: { answer, value } };
+  const handleAnswer = (
+    questionId: number,
+    question: string,
+    answer: string,
+    value: number
+  ) => {
+    const newAnswers = {
+      ...answers,
+      [questionId]: { question, answer, value },
+    };
     setAnswers(newAnswers);
 
     const newRiskFactor = Object.values(newAnswers).reduce(
@@ -95,7 +104,14 @@ export default function Home() {
 
   const handleSubmit = () => {
     // backend stuff here (maybe state mgmt too)
-    console.log("Submitting answers:", answers);
+    console.log(answers);
+    if (riskFactor <= 3) {
+      console.log(`Low risk: ${riskFactor}`);
+    } else if (riskFactor > 8) {
+      console.log(`High risk: ${riskFactor}`);
+    } else {
+      console.log(`Medium risk: ${riskFactor}`);
+    }
   };
 
   const renderQuestion = (question: Question, index: number) => (
@@ -111,7 +127,9 @@ export default function Home() {
           ([option, value], optionIndex) => (
             <button
               key={optionIndex}
-              onClick={() => handleAnswer(question.id, option, value)}
+              onClick={() =>
+                handleAnswer(question.id, question.text, option, value)
+              }
               className={`w-3/4 py-2 px-4 rounded transition duration-200 text-left ${
                 answers[question.id]?.answer === option
                   ? "bg-blue-600 text-white"
