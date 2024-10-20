@@ -91,8 +91,15 @@ export default function Home() {
     }
   };
 
+  const allQuestionsAnswered = Object.keys(answers).length === questions.length;
+
+  const handleSubmit = () => {
+    // backend stuff here (maybe state mgmt too)
+    console.log("Submitting answers:", answers);
+  };
+
   const renderQuestion = (question: Question, index: number) => (
-    <div key={question.id} className="mb-8">
+    <div key={question.id} className="mb-8 w-full">
       <h2 className="text-xl mb-4">
         <b>
           {index + 1}/{questions.length}:
@@ -128,21 +135,21 @@ export default function Home() {
         <main className="flex-grow flex flex-col min-h-full items-center z-10">
           <div className="w-full max-w-2xl py-20">
             <h1 className="text-3xl font-bold mb-8 text-center">
-              Investor Profile Questionnaire
+              Risk Profile Questionnaire
             </h1>
-            <button
-              onClick={() => setIsReviewMode(!isReviewMode)}
-              className="mb-4 px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded transition duration-200"
-            >
-              {isReviewMode
-                ? "Return to Single Question View"
-                : "Review All Questions"}
-            </button>
             {isReviewMode ? (
-              <div className="space-y-8">
+              <div className="flex flex-col items-center">
                 {questions.map((question, index) =>
                   renderQuestion(question, index)
                 )}
+                <button
+                  onClick={() => setIsReviewMode(!isReviewMode)}
+                  className="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded transition duration-200"
+                >
+                  {isReviewMode
+                    ? "Return to Single Question View"
+                    : "Review All Questions"}
+                </button>
               </div>
             ) : (
               <>
@@ -151,26 +158,40 @@ export default function Home() {
                   <button
                     onClick={goToPreviousQuestion}
                     disabled={currentQuestion === 0}
-                    className="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded transition duration-200 disabled:opacity-30 disabled:cursor-not-allowed"
                   >
-                    ← Back
+                    ←
+                  </button>
+                  <button
+                    onClick={() => setIsReviewMode(!isReviewMode)}
+                    className="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded transition duration-200"
+                  >
+                    {isReviewMode
+                      ? "Return to Single Question View"
+                      : "Review All Questions"}
                   </button>
                   <button
                     onClick={goToNextQuestion}
                     disabled={currentQuestion === questions.length - 1}
-                    className="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded transition duration-200 disabled:opacity-30 disabled:cursor-not-allowed"
                   >
-                    Next →
+                    →
                   </button>
                 </div>
               </>
             )}
             <div className="mt-8 text-center">
-              <p className="text-xl">Current Risk Factor: {riskFactor}</p>
               <p className="text-sm mt-2">
-                (Based on {Object.keys(answers).length} of {questions.length}{" "}
-                questions answered)
+                (<b>{Object.keys(answers).length}</b> of{" "}
+                <b>{questions.length}</b> questions answered)
               </p>
+              <button
+                onClick={handleSubmit}
+                className="mt-4 px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 active:bg-blue-950 transition duration-200 disabled:opacity-30 disabled:cursor-not-allowed"
+                disabled={!allQuestionsAnswered}
+              >
+                Submit Answers
+              </button>
             </div>
           </div>
         </main>
