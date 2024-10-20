@@ -105,13 +105,10 @@ export default function Home() {
   const handleSubmit = () => {
     // backend stuff here (maybe state mgmt too)
     console.log(answers);
-    if (riskFactor <= 3) {
-      console.log(`Low risk: ${riskFactor}`);
-    } else if (riskFactor > 8) {
-      console.log(`High risk: ${riskFactor}`);
-    } else {
-      console.log(`Medium risk: ${riskFactor}`);
-    }
+
+    const riskLevels = ["Low", "Medium", "High"];
+    const riskIndex = Math.min(Math.floor(riskFactor / 4), 2);
+    console.log(`${riskLevels[riskIndex]} risk: ${riskFactor}`);
   };
 
   const renderQuestion = (question: Question, index: number) => (
