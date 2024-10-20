@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect } from "react";
 
 import Header from "../app/components/header";
 import Footer from "../app/components/footer";
@@ -12,6 +15,9 @@ import autoCashOut from "../app/public/auto-cash-out.svg";
 import multichainSupport from "../app/public/multi-chain-support.svg";
 
 export default function Home() {
+  useEffect(() => {
+    localStorage.removeItem("finalSurveyResults");
+  }, []);
   return (
     <>
       <div className="absolute top-0 right-0 w-full h-full pointer-events-none z-0">
