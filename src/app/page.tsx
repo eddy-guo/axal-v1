@@ -34,8 +34,7 @@ export default function Home() {
                 Agents guarantee smart execution.
               </p>
               <Link
-                href="/"
-                target="_blank"
+                href="/survey"
                 className="bg-neutral-600 border border-neutral-600 hover:bg-neutral-800 hover:border-white text-white font-bold py-4 px-6 rounded-lg mr-5"
               >
                 Get Started
