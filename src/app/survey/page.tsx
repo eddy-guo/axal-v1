@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 import Header from "../components/header";
 import Footer from "../components/footer";
@@ -65,6 +66,20 @@ export default function Home() {
   const [isReviewMode, setIsReviewMode] = useState(false);
   const [riskFactor, setRiskFactor] = useState(0);
 
+  useEffect(() => {
+    localStorage.removeItem("finalSurveyResults");
+  }, []);
+
+  // update localStorage when something changes
+  useEffect(() => {
+    localStorage.setItem("tempSurveyAnswers", JSON.stringify(answers));
+    localStorage.setItem(
+      "tempSurveyCurrentQuestion",
+      currentQuestion.toString()
+    );
+    localStorage.setItem("tempSurveyRiskFactor", riskFactor.toString());
+  }, [answers, riskFactor, currentQuestion]);
+
   const handleAnswer = (
     questionId: number,
     question: string,
@@ -102,13 +117,19 @@ export default function Home() {
 
   const allQuestionsAnswered = Object.keys(answers).length === questions.length;
 
+  const router = useRouter();
   const handleSubmit = () => {
-    // backend stuff here (maybe state mgmt too)
-    console.log(answers);
-
-    const riskLevels = ["Low", "Medium", "High"];
-    const riskIndex = Math.min(Math.floor(riskFactor / 4), 2);
-    console.log(`${riskLevels[riskIndex]} risk: ${riskFactor}`);
+    if (Object.keys(answers).length === questions.length) {
+      localStorage.setItem(
+        "finalSurveyResults",
+        JSON.stringify({ answers, riskFactor })
+      );
+      localStorage.removeItem("tempSurveyAnswers");
+      localStorage.removeItem("tempSurveyRiskFactor");
+      localStorage.removeItem("tempSurveyCurrentQuestion");
+      // Navigate to results page
+      router.push("/results");
+    }
   };
 
   const renderQuestion = (question: Question, index: number) => (
