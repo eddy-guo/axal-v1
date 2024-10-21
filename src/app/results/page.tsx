@@ -44,7 +44,7 @@ export default function Result() {
     autoExit: false,
     autoTokenSwap: false,
     autoYieldHarvesting: false,
-    swapYield: "",
+    swapYieldTo: "",
     sendTo: "",
   });
 
@@ -63,14 +63,29 @@ export default function Result() {
 
   const saveSettings = () => {
     localStorage.setItem("userSettings", JSON.stringify(settings));
-    setIsSettingsModalOpen(false);
   };
 
-  const toggleSetting = (settingName: keyof typeof settings) => {
+  const updateSetting = (
+    settingName: keyof typeof settings,
+    value: boolean | string
+  ) => {
     setSettings((prevSettings) => ({
       ...prevSettings,
-      [settingName]: !prevSettings[settingName],
+      [settingName]: value,
     }));
+  };
+
+  // toggle switches
+  const handleToggle = (settingName: keyof typeof settings) => {
+    updateSetting(settingName, !settings[settingName]);
+    saveSettings();
+  };
+
+  // input fields
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    updateSetting(name as keyof typeof settings, value);
+    saveSettings();
   };
 
   if (!results) return null;
@@ -170,22 +185,22 @@ export default function Result() {
           <div className="w-1/2 space-y-6 pr-4">
             <ToggleSwitch
               isOn={settings.autoRebalance}
-              onToggle={() => toggleSetting("autoRebalance")}
+              onToggle={() => handleToggle("autoRebalance")}
               label="Auto-Rebalance Wallet"
             />
             <ToggleSwitch
               isOn={settings.autoExit}
-              onToggle={() => toggleSetting("autoExit")}
+              onToggle={() => handleToggle("autoExit")}
               label="Auto-Exit"
             />
             <ToggleSwitch
               isOn={settings.autoTokenSwap}
-              onToggle={() => toggleSetting("autoTokenSwap")}
+              onToggle={() => handleToggle("autoTokenSwap")}
               label="Auto-Token Swap"
             />
             <ToggleSwitch
               isOn={settings.autoYieldHarvesting}
-              onToggle={() => toggleSetting("autoYieldHarvesting")}
+              onToggle={() => handleToggle("autoYieldHarvesting")}
               label="Auto-Yield Harvesting"
             />
           </div>
@@ -211,11 +226,13 @@ export default function Result() {
               </Link>
               <span className="text-white">Limit</span>
             </div>
-
             <div>
               <span className="text-white block mb-1">Swap yield to:</span>
               <input
                 type="text"
+                name="swapYieldTo"
+                value={settings.swapYieldTo}
+                onChange={handleInputChange}
                 placeholder="Token (i.e. USDT)"
                 className="w-full px-2 py-1 bg-gray-700 text-white rounded"
               />
@@ -225,6 +242,9 @@ export default function Result() {
               <span className="text-white block mb-1">Send to:</span>
               <input
                 type="text"
+                name="sendTo"
+                value={settings.sendTo}
+                onChange={handleInputChange}
                 placeholder="ERC-20 wallet (i.e. 0x...)"
                 className="w-full px-2 py-1 bg-gray-700 text-white rounded"
               />
@@ -233,10 +253,10 @@ export default function Result() {
         </div>
 
         <button
-          onClick={saveSettings}
+          onClick={() => setIsSettingsModalOpen(false)}
           className="w-full bg-violet-600 hover:bg-violet-700 active:bg-violet-800 text-white px-4 py-2 rounded transition-colors mt-6"
         >
-          Save
+          Close
         </button>
       </Modal>
 
