@@ -61,31 +61,33 @@ export default function Result() {
     }
   }, []);
 
-  const saveSettings = () => {
-    localStorage.setItem("userSettings", JSON.stringify(settings));
+  const saveSettings = (newSettings: typeof settings) => {
+    localStorage.setItem("userSettings", JSON.stringify(newSettings));
   };
 
   const updateSetting = (
     settingName: keyof typeof settings,
     value: boolean | string
   ) => {
-    setSettings((prevSettings) => ({
-      ...prevSettings,
-      [settingName]: value,
-    }));
+    setSettings((prevSettings) => {
+      const newSettings = {
+        ...prevSettings,
+        [settingName]: value,
+      };
+      saveSettings(newSettings);
+      return newSettings;
+    });
   };
 
   // toggle switches
   const handleToggle = (settingName: keyof typeof settings) => {
     updateSetting(settingName, !settings[settingName]);
-    saveSettings();
   };
 
   // input fields
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     updateSetting(name as keyof typeof settings, value);
-    saveSettings();
   };
 
   if (!results) return null;
