@@ -25,27 +25,27 @@ const questions: Question[] = [
     id: 1,
     text: "You identify yourself as a:",
     options: {
-      "Knowledgeable investor interested in crypto": 0,
-      "Seasoned crypto investor": 1,
-      "Complete degen": 2,
+      "Knowledgeable investor interested in crypto.": 0,
+      "Seasoned crypto investor.": 1,
+      "Complete degen.": 2,
     },
   },
   {
     id: 2,
     text: "I plan to withdraw my profits in:",
-    options: { "< 1 year": 2, "5+ years": 0, undecided: 1 },
+    options: { "< 1 year.": 2, "5+ years.": 0, "undecided.": 1 },
   },
   {
     id: 3,
     text: "I think buying memecoins is",
-    options: { "a terrible idea": 0, "long on culture": 1, "🐐 goated 🐐": 2 },
+    options: { "a terrible idea.": 0, "long on culture.": 1, "🐐 goated 🐐": 2 },
   },
   {
     id: 4,
     text: "Your wallet is up 40%. What do you do?",
     options: {
-      "Liquidate and move to a lower risk investment": 0,
-      "Sell enough to cover your original investment, hold the rest": 1,
+      "Liquidate and move to a lower risk investment.": 0,
+      "Sell enough to cover your original investment, hold the rest.": 1,
       "Buy more 💸": 2,
     },
   },
@@ -150,7 +150,7 @@ export default function Home() {
               }
               className={`w-3/4 py-2 px-4 rounded transition duration-200 text-left ${
                 answers[question.id]?.answer === option
-                  ? "bg-blue-600 text-white"
+                  ? "bg-gray-800 border border-white text-white"
                   : "bg-gray-800 hover:bg-gray-600 active:bg-gray-500"
               }`}
             >
@@ -223,7 +223,7 @@ export default function Home() {
               </p>
               <button
                 onClick={handleSubmit}
-                className="mt-4 px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 active:bg-blue-900 transition duration-200 disabled:opacity-30 disabled:cursor-not-allowed"
+                className="mt-4 px-6 py-2 bg-violet-600 hover:bg-violet-700 active:bg-violet-800 text-white rounded transition duration-200 disabled:opacity-30 disabled:cursor-not-allowed"
                 disabled={!allQuestionsAnswered}
               >
                 Submit Answers

@@ -143,7 +143,7 @@ export default function Home() {
                 </h1>
                 <p className="text-xl my-1">You keep your private keys.</p>
               </div>
-              <div className="w-1/2 relative aspect-square border">
+              <div className="w-1/2 relative aspect-square">
                 <Image
                   src={graphic}
                   alt="graphic"
@@ -153,7 +153,7 @@ export default function Home() {
               </div>
             </div>
             <div className="flex">
-              <div className="w-1/2 relative aspect-square border">
+              <div className="w-1/2 relative aspect-square">
                 <Image
                   src={graphic}
                   alt="graphic"
@@ -173,7 +173,7 @@ export default function Home() {
                 <h1 className="text-4xl my-4 font-bold">Title 3</h1>
                 <p className="text-xl my-1">Description for title 3.</p>
               </div>
-              <div className="w-1/2 relative aspect-square border">
+              <div className="w-1/2 relative aspect-square">
                 <Image
                   src={graphic}
                   alt="graphic"
