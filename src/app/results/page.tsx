@@ -6,6 +6,7 @@ import Link from "next/link";
 
 import Header from "../components/header";
 import Footer from "../components/footer";
+import Modal from "../components/modal";
 
 interface SurveyResults {
   answers: Record<number, { question: string; answer: string; value: number }>;
@@ -35,15 +36,31 @@ const getRiskLevel = (riskFactor: number) => {
 export default function Result() {
   const router = useRouter();
   const [results, setResults] = useState<SurveyResults | null>(null);
+  const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false);
+  const [isAssetListModalOpen, setIsAssetListModalOpen] = useState(false);
+  const [settings, setSettings] = useState({
+    notificationsEnabled: false,
+    darkModeEnabled: true,
+    // Add more settings as needed
+  });
 
   useEffect(() => {
     const storedResults = localStorage.getItem("finalSurveyResults");
+    const storedSettings = localStorage.getItem("userSettings");
     if (!storedResults) {
       router.replace("/");
     } else {
       setResults(JSON.parse(storedResults));
     }
+    if (storedSettings) {
+      setSettings(JSON.parse(storedSettings));
+    }
   }, []);
+
+  const saveSettings = () => {
+    localStorage.setItem("userSettings", JSON.stringify(settings));
+    setIsSettingsModalOpen(false);
+  };
 
   if (!results) return null;
 
@@ -86,22 +103,23 @@ export default function Result() {
             <div className="flex justify-between mt-6">
               <Link
                 href="https://www.ax.al/"
+                target="_blank"
                 className="px-4 py-2 bg-violet-600 hover:bg-violet-700 active:bg-violet-800 rounded transition-colors"
               >
                 Launch Now
               </Link>
-              <Link
-                href="https://www.ax.al/"
+              <button
+                onClick={() => setIsSettingsModalOpen(true)}
                 className="px-4 py-2 bg-violet-300 hover:bg-violet-400 active:bg-violet-500 text-purple-900 rounded transition-colors"
               >
                 Settings
-              </Link>
-              <Link
-                href="https://www.ax.al/"
+              </button>
+              <button
+                onClick={() => setIsAssetListModalOpen(true)}
                 className="px-4 py-2 bg-violet-300 hover:bg-violet-400 active:bg-violet-500 text-purple-900 rounded transition-colors"
               >
                 Asset List
-              </Link>
+              </button>
             </div>
           </div>
 
@@ -128,6 +146,64 @@ export default function Result() {
         </div>
       </main>
       <Footer />
+      <Modal
+        isOpen={isSettingsModalOpen}
+        onClose={() => setIsSettingsModalOpen(false)}
+        title="Settings"
+      >
+        <div className="space-y-4">
+          <div className="flex items-center justify-between">
+            <label htmlFor="notifications" className="text-white">
+              Enable Notifications
+            </label>
+            <input
+              type="checkbox"
+              id="notifications"
+              checked={settings.notificationsEnabled}
+              onChange={(e) =>
+                setSettings({
+                  ...settings,
+                  notificationsEnabled: e.target.checked,
+                })
+              }
+              className="form-checkbox h-5 w-5 text-blue-600"
+            />
+          </div>
+          <div className="flex items-center justify-between">
+            <label htmlFor="darkMode" className="text-white">
+              Dark Mode
+            </label>
+            <input
+              type="checkbox"
+              id="darkMode"
+              checked={settings.darkModeEnabled}
+              onChange={(e) =>
+                setSettings({ ...settings, darkModeEnabled: e.target.checked })
+              }
+              className="form-checkbox h-5 w-5 text-blue-600"
+            />
+          </div>
+          {/* Add more settings as needed */}
+          <button
+            onClick={saveSettings}
+            className="w-full bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors"
+          >
+            Save Settings
+          </button>
+        </div>
+      </Modal>
+
+      <Modal
+        isOpen={isAssetListModalOpen}
+        onClose={() => setIsAssetListModalOpen(false)}
+        title="Asset List"
+      >
+        <div className="space-y-2">
+          <p className="text-white">Asset 1</p>
+          <p className="text-white">Asset 2</p>
+          <p className="text-white">Asset 3</p>
+        </div>
+      </Modal>
     </div>
   );
 }
