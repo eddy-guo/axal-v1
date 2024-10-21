@@ -13,6 +13,13 @@ export default function Footer() {
       </div>
       <div className="flex gap-6">
         <a
+          href="mailto:hello@getaxal.com"
+          target="_blank"
+          className="hover:underline hover:underline-offset-4 flex items-center h-full"
+        >
+          Contact
+        </a>
+        <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
           href="https://www.ax.al/"
           target="_blank"

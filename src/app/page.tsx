@@ -55,12 +55,21 @@ export default function Home() {
             </div>
             <Image src={graphic2} alt="graphic-2" width={500} height={500} />
           </div>
-          <div className="py-20">
-            <h1 className="text-5xl pb-5 font-bold">How it works</h1>
-            <ul className="list-disc text-xl py-1">
-              <li>Assess your risk</li>
-              <li>Approve your wallet strategy</li>
-              <li>Earn yield in your sleep</li>
+          <div className="w-full py-20 bg-black text-white text-center">
+            <h1 className="text-5xl font-bold mb-8">How it works</h1>
+            <ul className="list-disc list-inside space-y-6 text-xl leading-relaxed text-left max-w-xl mx-auto">
+              <li className="flex items-start">
+                <span className="mr-3">🔍</span> {/* Custom icon or emoji */}
+                <p>Assess your risk</p>
+              </li>
+              <li className="flex items-start">
+                <span className="mr-3">📝</span>
+                <p>Approve your wallet strategy</p>
+              </li>
+              <li className="flex items-start">
+                <span className="mr-3">💤</span>
+                <p>Earn yield in your sleep</p>
+              </li>
             </ul>
           </div>
 
