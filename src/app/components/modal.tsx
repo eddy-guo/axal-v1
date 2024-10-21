@@ -1,4 +1,3 @@
-// components/Modal.tsx
 import React, { useEffect, useCallback, useRef } from "react";
 
 interface ModalProps {
@@ -51,7 +50,11 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
       <div ref={modalRef} className="bg-gray-800 rounded-lg p-6">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-xl font-bold text-white">{title}</h2>
-          <button onClick={onClose} className="text-gray-400 hover:text-white">
+          <button
+            onClick={onClose}
+            className="w-8 h-8 flex items-center justify-center text-xl text-gray-400 hover:text-white transition-colors duration-200"
+            aria-label="Close modal"
+          >
             &times;
           </button>
         </div>

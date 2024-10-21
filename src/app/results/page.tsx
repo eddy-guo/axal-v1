@@ -46,6 +46,10 @@ export default function Result() {
     autoYieldHarvesting: false,
     swapYieldTo: "",
     sendTo: "",
+    stablecoins: 40,
+    bluechips: 50,
+    memecoins: 5,
+    ai: 5,
   });
 
   useEffect(() => {
@@ -267,11 +271,70 @@ export default function Result() {
         onClose={() => setIsAssetListModalOpen(false)}
         title="Asset List"
       >
-        <div className="space-y-2">
-          <p className="text-white">Asset 1</p>
-          <p className="text-white">Asset 2</p>
-          <p className="text-white">Asset 3</p>
+        <p className="text-sm text-gray-300 mb-5">
+          Ensure your Axal Autopilot is customized to your risk-preference
+        </p>
+        <div className="space-y-6">
+          <div className="flex items-center justify-between w-full">
+            <p>Stablecoins</p>
+            <div>
+              <input
+                type="text"
+                name="stablecoins"
+                value={settings.stablecoins}
+                onChange={handleInputChange}
+                className="w-10 px-2 py-1 mx-1 bg-gray-700 text-white rounded"
+              />
+              %
+            </div>
+          </div>
+          <div className="flex items-center justify-between w-full">
+            <p>Blue-chips</p>
+            <div>
+              <input
+                type="text"
+                name="bluechips"
+                value={settings.bluechips}
+                onChange={handleInputChange}
+                className="w-10 px-2 py-1 mx-1 bg-gray-700 text-white rounded"
+              />
+              %
+            </div>
+          </div>
+          <div className="flex items-center justify-between w-full">
+            <p>Memecoin Index</p>
+            <div>
+              <input
+                type="text"
+                name="memecoins"
+                value={settings.memecoins}
+                onChange={handleInputChange}
+                className="w-10 px-2 py-1 mx-1 bg-gray-700 text-white rounded"
+              />
+              %
+            </div>
+          </div>
+          <div className="flex items-center justify-between w-full">
+            <p>AI Index</p>
+            <div>
+              <input
+                type="text"
+                name="ai"
+                value={settings.ai}
+                onChange={handleInputChange}
+                className="w-10 px-2 py-1 mx-1 bg-gray-700 text-white rounded"
+              />
+              %
+            </div>
+          </div>
         </div>
+
+        <button
+          onClick={() => setIsAssetListModalOpen(false)}
+          className="w-full bg-violet-600 hover:bg-violet-700 active:bg-violet-800 text-white px-4 py-2 rounded transition-colors mt-6"
+        >
+          Close
+        </button>
       </Modal>
     </div>
   );
