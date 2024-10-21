@@ -151,7 +151,7 @@ export default function Home() {
               className={`w-3/4 py-2 px-4 rounded transition duration-200 text-left ${
                 answers[question.id]?.answer === option
                   ? "bg-blue-600 text-white"
-                  : "bg-gray-800 hover:bg-gray-700 active:bg-blue-600"
+                  : "bg-gray-800 hover:bg-gray-600 active:bg-gray-500"
               }`}
             >
               {option}
@@ -180,7 +180,7 @@ export default function Home() {
                 )}
                 <button
                   onClick={() => setIsReviewMode(!isReviewMode)}
-                  className="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded transition duration-200"
+                  className="px-4 py-2 bg-gray-800 hover:bg-gray-600 active:bg-gray-500 rounded transition duration-200"
                 >
                   {isReviewMode
                     ? "Return to Single Question View"
@@ -194,13 +194,13 @@ export default function Home() {
                   <button
                     onClick={goToPreviousQuestion}
                     disabled={currentQuestion === 0}
-                    className="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded transition duration-200 disabled:opacity-30 disabled:cursor-not-allowed"
+                    className="px-4 py-2 bg-gray-800 hover:bg-gray-600 active:bg-gray-500 rounded transition duration-200 disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-gray-800"
                   >
                     ←
                   </button>
                   <button
                     onClick={() => setIsReviewMode(!isReviewMode)}
-                    className="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded transition duration-200"
+                    className="px-4 py-2 bg-gray-800 hover:bg-gray-600 active:bg-gray-500 rounded transition duration-200"
                   >
                     {isReviewMode
                       ? "Return to Single Question View"
@@ -209,7 +209,7 @@ export default function Home() {
                   <button
                     onClick={goToNextQuestion}
                     disabled={currentQuestion === questions.length - 1}
-                    className="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded transition duration-200 disabled:opacity-30 disabled:cursor-not-allowed"
+                    className="px-4 py-2 bg-gray-800 hover:bg-gray-600 active:bg-gray-500 rounded transition duration-200 disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-gray-800"
                   >
                     →
                   </button>
@@ -223,7 +223,7 @@ export default function Home() {
               </p>
               <button
                 onClick={handleSubmit}
-                className="mt-4 px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 active:bg-blue-950 transition duration-200 disabled:opacity-30 disabled:cursor-not-allowed"
+                className="mt-4 px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 active:bg-blue-900 transition duration-200 disabled:opacity-30 disabled:cursor-not-allowed"
                 disabled={!allQuestionsAnswered}
               >
                 Submit Answers
