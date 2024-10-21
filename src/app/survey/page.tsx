@@ -38,7 +38,11 @@ const questions: Question[] = [
   {
     id: 3,
     text: "I think buying memecoins is",
-    options: { "a terrible idea.": 0, "long on culture.": 1, "🐐 goated 🐐": 2 },
+    options: {
+      "a terrible idea.": 0,
+      "long on culture.": 1,
+      "🐐 goated 🐐": 2,
+    },
   },
   {
     id: 4,
@@ -162,7 +166,7 @@ export default function Home() {
     </div>
   );
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen font-[family-name:var(--font-geist-sans)]">
       <div className="absolute top-0 right-0 inset-0 w-full h-full pointer-events-none z-0">
         <div className="w-full h-full bg-gradient-to-bl from-gray-500 via-black to-black rounded-bl-full" />
       </div>

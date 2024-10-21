@@ -7,6 +7,7 @@ import Link from "next/link";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import Modal from "../components/modal";
+import ToggleSwitch from "../components/toggleswitch";
 
 interface SurveyResults {
   answers: Record<number, { question: string; answer: string; value: number }>;
@@ -39,9 +40,12 @@ export default function Result() {
   const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false);
   const [isAssetListModalOpen, setIsAssetListModalOpen] = useState(false);
   const [settings, setSettings] = useState({
-    notificationsEnabled: false,
-    darkModeEnabled: true,
-    // Add more settings as needed
+    autoRebalance: false,
+    autoExit: false,
+    autoTokenSwap: false,
+    autoYieldHarvesting: false,
+    swapYield: "",
+    sendTo: "",
   });
 
   useEffect(() => {
@@ -62,13 +66,20 @@ export default function Result() {
     setIsSettingsModalOpen(false);
   };
 
+  const toggleSetting = (settingName: keyof typeof settings) => {
+    setSettings((prevSettings) => ({
+      ...prevSettings,
+      [settingName]: !prevSettings[settingName],
+    }));
+  };
+
   if (!results) return null;
 
   const { level, desc, color } = getRiskLevel(results.riskFactor);
   const maxRiskFactor = 10;
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen font-[family-name:var(--font-geist-sans)]">
       <div className="absolute top-0 right-0 inset-0 w-full h-full pointer-events-none z-0">
         <div className="w-full h-full bg-gradient-to-bl from-gray-500 via-black to-black rounded-bl-full" />
       </div>
@@ -149,48 +160,84 @@ export default function Result() {
       <Modal
         isOpen={isSettingsModalOpen}
         onClose={() => setIsSettingsModalOpen(false)}
-        title="Settings"
+        title="Advanced Settings"
       >
-        <div className="space-y-4">
-          <div className="flex items-center justify-between">
-            <label htmlFor="notifications" className="text-white">
-              Enable Notifications
-            </label>
-            <input
-              type="checkbox"
-              id="notifications"
-              checked={settings.notificationsEnabled}
-              onChange={(e) =>
-                setSettings({
-                  ...settings,
-                  notificationsEnabled: e.target.checked,
-                })
-              }
-              className="form-checkbox h-5 w-5 text-blue-600"
+        <p className="text-sm text-gray-300 mb-5">
+          Axal Autopilot is the only trading bot that allows for complex,
+          multi-step trading strategies.
+        </p>
+        <div className="flex">
+          <div className="w-1/2 space-y-6 pr-4">
+            <ToggleSwitch
+              isOn={settings.autoRebalance}
+              onToggle={() => toggleSetting("autoRebalance")}
+              label="Auto-Rebalance Wallet"
+            />
+            <ToggleSwitch
+              isOn={settings.autoExit}
+              onToggle={() => toggleSetting("autoExit")}
+              label="Auto-Exit"
+            />
+            <ToggleSwitch
+              isOn={settings.autoTokenSwap}
+              onToggle={() => toggleSetting("autoTokenSwap")}
+              label="Auto-Token Swap"
+            />
+            <ToggleSwitch
+              isOn={settings.autoYieldHarvesting}
+              onToggle={() => toggleSetting("autoYieldHarvesting")}
+              label="Auto-Yield Harvesting"
             />
           </div>
-          <div className="flex items-center justify-between">
-            <label htmlFor="darkMode" className="text-white">
-              Dark Mode
-            </label>
-            <input
-              type="checkbox"
-              id="darkMode"
-              checked={settings.darkModeEnabled}
-              onChange={(e) =>
-                setSettings({ ...settings, darkModeEnabled: e.target.checked })
-              }
-              className="form-checkbox h-5 w-5 text-blue-600"
-            />
+
+          <div className="space-y-6 pl-4">
+            <div className="space-x-2">
+              <Link
+                href="https://www.ax.al/"
+                target="_blank"
+                className="text-sm text-red-600 hover:underline hover:underline-offset-4"
+              >
+                Set Parameters ↗
+              </Link>
+              <span className="text-white">Stop Loss</span>
+            </div>
+            <div className="space-x-2">
+              <Link
+                href="https://www.ax.al/"
+                target="_blank"
+                className="text-sm text-red-600 hover:underline hover:underline-offset-4"
+              >
+                Set Parameters ↗
+              </Link>
+              <span className="text-white">Limit</span>
+            </div>
+
+            <div>
+              <span className="text-white block mb-1">Swap yield to:</span>
+              <input
+                type="text"
+                placeholder="Token (i.e. USDT)"
+                className="w-full px-2 py-1 bg-gray-700 text-white rounded"
+              />
+            </div>
+
+            <div>
+              <span className="text-white block mb-1">Send to:</span>
+              <input
+                type="text"
+                placeholder="ERC-20 wallet (i.e. 0x...)"
+                className="w-full px-2 py-1 bg-gray-700 text-white rounded"
+              />
+            </div>
           </div>
-          {/* Add more settings as needed */}
-          <button
-            onClick={saveSettings}
-            className="w-full bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors"
-          >
-            Save Settings
-          </button>
         </div>
+
+        <button
+          onClick={saveSettings}
+          className="w-full bg-violet-600 hover:bg-violet-700 active:bg-violet-800 text-white px-4 py-2 rounded transition-colors mt-6"
+        >
+          Save
+        </button>
       </Modal>
 
       <Modal
