@@ -59,23 +59,26 @@ export default function Home() {
             <h1 className="text-5xl font-bold mb-8">How it works</h1>
             <ul className="list-disc list-inside space-y-6 text-xl leading-relaxed text-left max-w-xl mx-auto">
               <li className="flex items-start">
-                <span className="mr-3">🔍</span> {/* Custom icon or emoji */}
-                <p>Assess your risk</p>
+                <p className="hover:text-neutral-400 transition duration-200">
+                  🔍 Assess your risk
+                </p>
               </li>
               <li className="flex items-start">
-                <span className="mr-3">📝</span>
-                <p>Approve your wallet strategy</p>
+                <p className="hover:text-neutral-400 transition duration-200">
+                  📝 Approve your wallet strategy
+                </p>
               </li>
               <li className="flex items-start">
-                <span className="mr-3">💤</span>
-                <p>Earn yield in your sleep</p>
+                <p className="hover:text-neutral-400 transition duration-200">
+                  💤 Earn yield in your sleep
+                </p>
               </li>
             </ul>
           </div>
 
           <h1 className="text-5xl py-5 font-bold">Features</h1>
           <div className="w-full flex flex-wrap items-center justify-between py-5">
-            <div className="flex flex-col w-[22%] p-6 border border-neutral-600 bg-neutral-900 hover:border-white transition-colors duration-150">
+            <div className="flex flex-col w-[22%] p-6 border border-neutral-600 bg-neutral-900 hover:border-white transition-colors duration-200">
               <Image
                 src={autoRebalance}
                 alt="auto-rebalance"
@@ -144,7 +147,7 @@ export default function Home() {
             Read Documentation ↗
           </Link>
 
-          <section className="w-3/4 py-16">
+          <section className="w-3/4">
             <div className="flex">
               <div className="w-1/2 pr-8 flex flex-col justify-center">
                 <h1 className="text-4xl my-4 font-bold">
